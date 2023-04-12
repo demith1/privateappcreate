@@ -68,7 +68,7 @@ for index, row in df.iterrows():
         # If the tag in row['Tags'] doesnt exist in the tenant, it will be automatically created
         # If there is more than one tag, comma separated, it will create a single string tag which we don't want
         # Splitting the row based on "," to be able to create and assign individual tags
-        tags = row['Tags'].split(',')
+        tags = str(row['Tags']).split(',')
         for tag in tags:
             payload['tags'].append({
                 "tag_name": str(tag)
